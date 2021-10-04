@@ -1,0 +1,5 @@
+C:/Users/Vladimir_Shvartc/source/repos/Deque with move/out/build/x64-Debug (default)/CMakeFiles/edit_cache.dir
+C:/Users/Vladimir_Shvartc/source/repos/Deque with move/out/build/x64-Debug (default)/CMakeFiles/rebuild_cache.dir
+C:/Users/Vladimir_Shvartc/source/repos/Deque with move/out/build/x64-Debug (default)/Deque with move/CMakeFiles/CMakeTarget.dir
+C:/Users/Vladimir_Shvartc/source/repos/Deque with move/out/build/x64-Debug (default)/Deque with move/CMakeFiles/edit_cache.dir
+C:/Users/Vladimir_Shvartc/source/repos/Deque with move/out/build/x64-Debug (default)/Deque with move/CMakeFiles/rebuild_cache.dir

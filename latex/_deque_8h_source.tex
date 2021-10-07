@@ -1,0 +1,244 @@
+\hypertarget{_deque_8h_source}{}\doxysection{Deque.\+h}
+\label{_deque_8h_source}\index{Deque with move/Deque.h@{Deque with move/Deque.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{3 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_deque}{Deque}};}
+\DoxyCodeLine{12 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{13 std::ostream\& \mbox{\hyperlink{class_deque_a0edf27e361a835752616f362d1bc2278}{operator <<}}(std::ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{class_deque}{Deque<T>}}\& deque);}
+\DoxyCodeLine{18 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_deque}{Deque}} \{       }
+\DoxyCodeLine{21 }
+\DoxyCodeLine{25     \textcolor{keyword}{struct }Node\{}
+\DoxyCodeLine{32         Node(\textcolor{keyword}{const} T\& newData, Node* prev, Node* next);}
+\DoxyCodeLine{40         Node(T\&\& newData, Node* prev, Node* next);}
+\DoxyCodeLine{44         T data;}
+\DoxyCodeLine{48         Node* next;}
+\DoxyCodeLine{52         Node* prev;}
+\DoxyCodeLine{53     \};}
+\DoxyCodeLine{54 \textcolor{keyword}{private}:}
+\DoxyCodeLine{55     Node* first;}
+\DoxyCodeLine{56     Node* last;}
+\DoxyCodeLine{57     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{58 \textcolor{keyword}{public}:}
+\DoxyCodeLine{62     \mbox{\hyperlink{class_deque}{Deque<T>}}();}
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_deque_a24ad73c7b6a8d36147a9d3c604bf0552}{pushFront}}(\textcolor{keyword}{const} T\& newData);}
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_deque_a24ad73c7b6a8d36147a9d3c604bf0552}{pushFront}}(T\&\& newData);}
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_deque_a94ab2b40010b282f52410785e20ff514}{pushBack}}(\textcolor{keyword}{const} T\& newData);}
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_deque_a94ab2b40010b282f52410785e20ff514}{pushBack}}(T\&\& newData);}
+\DoxyCodeLine{88     T \mbox{\hyperlink{class_deque_ab45c37754e50342a60f450468aadfd03}{popFront}}();}
+\DoxyCodeLine{94     T \mbox{\hyperlink{class_deque_a922017fa32ca1f2e3aef3fc2df64cd5f}{popBack}}();}
+\DoxyCodeLine{99     \mbox{\hyperlink{class_deque}{Deque<T>}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_deque}{Deque<T>}}\& deque);}
+\DoxyCodeLine{105     \mbox{\hyperlink{class_deque}{Deque<T>}} \mbox{\hyperlink{class_deque_af158259c70c2cccce4b02b6d7fccacc7}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_deque}{Deque<T>}}\& deque);}
+\DoxyCodeLine{110     \mbox{\hyperlink{class_deque_ad962e9c9ddb2c3290ea91f796d7051bc}{Deque}}( \mbox{\hyperlink{class_deque}{Deque<T>}}\&\& deque);}
+\DoxyCodeLine{116     \mbox{\hyperlink{class_deque}{Deque<T>}} \mbox{\hyperlink{class_deque_af158259c70c2cccce4b02b6d7fccacc7}{operator=}}( \mbox{\hyperlink{class_deque}{Deque<T>}}\&\& deque);}
+\DoxyCodeLine{121     \mbox{\hyperlink{class_deque}{Deque<T>}}(\textcolor{keyword}{const} std::initializer\_list<T>\& list);}
+\DoxyCodeLine{129     \textcolor{keyword}{friend} std::ostream\& operator<< <>(std::ostream\&,\textcolor{keyword}{const} \mbox{\hyperlink{class_deque}{Deque<T>}}\&);}
+\DoxyCodeLine{131     \mbox{\hyperlink{class_deque_a7a214bb3ef8cb676f9ef0e9825ae4b1b}{\string~Deque}}();}
+\DoxyCodeLine{132 \};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{135 \textcolor{keyword}{inline} \mbox{\hyperlink{class_deque_ad962e9c9ddb2c3290ea91f796d7051bc}{Deque<T>::Deque}}():first(nullptr),last(nullptr),size(0)}
+\DoxyCodeLine{136 \{}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{141 \textcolor{keyword}{inline} \mbox{\hyperlink{class_deque_ad962e9c9ddb2c3290ea91f796d7051bc}{Deque<T>::Deque}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_deque}{Deque<T>}}\& deque)}
+\DoxyCodeLine{142 \{}
+\DoxyCodeLine{143     size = 0;}
+\DoxyCodeLine{144     first = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{145     last = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{146     Node* iter = deque.first;}
+\DoxyCodeLine{147     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i = 0; i != deque.size; ++i) \{}
+\DoxyCodeLine{148         pushBack(iter-\/>data);}
+\DoxyCodeLine{149         iter = iter-\/>next;}
+\DoxyCodeLine{150     \}}
+\DoxyCodeLine{151 \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{154 \textcolor{keyword}{inline} \mbox{\hyperlink{class_deque_ad962e9c9ddb2c3290ea91f796d7051bc}{Deque<T>::Deque}}(\textcolor{keyword}{const} std::initializer\_list<T>\& list)}
+\DoxyCodeLine{155 \{}
+\DoxyCodeLine{156     size = 0;}
+\DoxyCodeLine{157     first = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{158     last = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{159     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} elem : list)}
+\DoxyCodeLine{160         pushFront(elem);}
+\DoxyCodeLine{161 \}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{164 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_deque_a24ad73c7b6a8d36147a9d3c604bf0552}{Deque<T>::pushFront}}(\textcolor{keyword}{const} T\& newData)}
+\DoxyCodeLine{165 \{}
+\DoxyCodeLine{166     first = \textcolor{keyword}{new} Node(newData,\textcolor{keyword}{nullptr},first);}
+\DoxyCodeLine{167     \textcolor{keywordflow}{if} (size == 0)}
+\DoxyCodeLine{168         last = first;}
+\DoxyCodeLine{169     size++;}
+\DoxyCodeLine{170 \}}
+\DoxyCodeLine{171 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{172 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_deque_a24ad73c7b6a8d36147a9d3c604bf0552}{Deque<T>::pushFront}}( T\&\& newData)}
+\DoxyCodeLine{173 \{}
+\DoxyCodeLine{174     first = \textcolor{keyword}{new} Node(std::move(newData), \textcolor{keyword}{nullptr}, first);}
+\DoxyCodeLine{175     \textcolor{keywordflow}{if} (size == 0)}
+\DoxyCodeLine{176         last = first;}
+\DoxyCodeLine{177     size++;}
+\DoxyCodeLine{178 \}}
+\DoxyCodeLine{179 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{180 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_deque_a94ab2b40010b282f52410785e20ff514}{Deque<T>::pushBack}}(\textcolor{keyword}{const} T\& newData)}
+\DoxyCodeLine{181 \{}
+\DoxyCodeLine{182     last = \textcolor{keyword}{new} Node(newData, last, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{183     \textcolor{keywordflow}{if} (size == 0)}
+\DoxyCodeLine{184         first = last;}
+\DoxyCodeLine{185     size++;}
+\DoxyCodeLine{186 \}}
+\DoxyCodeLine{187 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{188 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_deque_a94ab2b40010b282f52410785e20ff514}{Deque<T>::pushBack}}(T\&\& newData)}
+\DoxyCodeLine{189 \{}
+\DoxyCodeLine{190     last = \textcolor{keyword}{new} Node(std::move(newData), last, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{191     \textcolor{keywordflow}{if} (size == 0)}
+\DoxyCodeLine{192         first = last;}
+\DoxyCodeLine{193     size++;}
+\DoxyCodeLine{194 \}}
+\DoxyCodeLine{195 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{196 \textcolor{keyword}{inline} T \mbox{\hyperlink{class_deque_ab45c37754e50342a60f450468aadfd03}{Deque<T>::popFront}}()}
+\DoxyCodeLine{197 \{}
+\DoxyCodeLine{198     \textcolor{keywordflow}{if} (size > 0) \{}
+\DoxyCodeLine{199         T t = first-\/>data;}
+\DoxyCodeLine{200         Node* tmp = first-\/>next;}
+\DoxyCodeLine{201         \textcolor{keyword}{delete} first;}
+\DoxyCodeLine{202         \textcolor{keywordflow}{if} (tmp != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{203             tmp-\/>prev = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{204         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{205             last = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{206         first = tmp;}
+\DoxyCodeLine{207         size-\/-\/;}
+\DoxyCodeLine{208         \textcolor{keywordflow}{return} t;}
+\DoxyCodeLine{209     \}}
+\DoxyCodeLine{210     \textcolor{keywordflow}{else} \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Size = 0"{}};}
+\DoxyCodeLine{211 \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{214 \textcolor{keyword}{inline} T \mbox{\hyperlink{class_deque_a922017fa32ca1f2e3aef3fc2df64cd5f}{Deque<T>::popBack}}()}
+\DoxyCodeLine{215 \{}
+\DoxyCodeLine{216     \textcolor{keywordflow}{if} (size > 0) \{}
+\DoxyCodeLine{217         T t = last-\/>data;}
+\DoxyCodeLine{218         Node* tmp = last-\/>prev;}
+\DoxyCodeLine{219         \textcolor{keyword}{delete} last;}
+\DoxyCodeLine{220         \textcolor{keywordflow}{if} (tmp != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{221             tmp-\/>next = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{222         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{223             first = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{224         last = tmp;}
+\DoxyCodeLine{225         size-\/-\/;}
+\DoxyCodeLine{226         \textcolor{keywordflow}{return} t;}
+\DoxyCodeLine{227     \}}
+\DoxyCodeLine{228     \textcolor{keywordflow}{else} \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Size = 0"{}};}
+\DoxyCodeLine{229 \}}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{232 \textcolor{keyword}{inline} \mbox{\hyperlink{class_deque}{Deque<T>}} \mbox{\hyperlink{class_deque_af158259c70c2cccce4b02b6d7fccacc7}{Deque<T>::operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_deque}{Deque<T>}}\& deque)}
+\DoxyCodeLine{233 \{}
+\DoxyCodeLine{234     \textcolor{keywordflow}{while} (size)}
+\DoxyCodeLine{235     \{}
+\DoxyCodeLine{236         popBack();}
+\DoxyCodeLine{237     \}}
+\DoxyCodeLine{238     first = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{239     last = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{240     Node* iter = deque.first;}
+\DoxyCodeLine{241     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i = 0; i != deque.size; ++i) \{}
+\DoxyCodeLine{242         pushBack(iter-\/>data);}
+\DoxyCodeLine{243         iter = iter-\/>next;}
+\DoxyCodeLine{244     \}}
+\DoxyCodeLine{245     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{246 \}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{249 \textcolor{keyword}{inline} \mbox{\hyperlink{class_deque_ad962e9c9ddb2c3290ea91f796d7051bc}{Deque<T>::Deque}}( \mbox{\hyperlink{class_deque}{Deque<T>}}\&\& deque)}
+\DoxyCodeLine{250 \{}
+\DoxyCodeLine{251     first = deque.first;}
+\DoxyCodeLine{252     last = deque.last;}
+\DoxyCodeLine{253     size = deque.size;}
+\DoxyCodeLine{254     deque.first = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{255     deque.last = \textcolor{keyword}{nullptr};   }
+\DoxyCodeLine{256     deque.size = 0;}
+\DoxyCodeLine{257 \}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{260 \textcolor{keyword}{inline} \mbox{\hyperlink{class_deque}{Deque<T>}} \mbox{\hyperlink{class_deque_af158259c70c2cccce4b02b6d7fccacc7}{Deque<T>::operator=}}( \mbox{\hyperlink{class_deque}{Deque<T>}}\&\& deque)}
+\DoxyCodeLine{261 \{}
+\DoxyCodeLine{262     \textcolor{keywordflow}{while} (size)}
+\DoxyCodeLine{263         popBack();}
+\DoxyCodeLine{264     first = deque.first;}
+\DoxyCodeLine{265     last = deque.last;}
+\DoxyCodeLine{266     size = deque.size;}
+\DoxyCodeLine{267     deque.first = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{268     deque.last = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{269     deque.size = 0;}
+\DoxyCodeLine{270     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{271 \}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{274 \textcolor{keyword}{inline} \mbox{\hyperlink{class_deque_a7a214bb3ef8cb676f9ef0e9825ae4b1b}{Deque<T>::\string~Deque}}()}
+\DoxyCodeLine{275 \{}
+\DoxyCodeLine{276     Node* tmp;}
+\DoxyCodeLine{277     \textcolor{keywordflow}{while} (first != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{278     \{}
+\DoxyCodeLine{279         tmp = first;}
+\DoxyCodeLine{280         first = first-\/>next;}
+\DoxyCodeLine{281         \textcolor{keyword}{delete} tmp;}
+\DoxyCodeLine{282     \}}
+\DoxyCodeLine{283 \}}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{286 \textcolor{keyword}{inline} \mbox{\hyperlink{class_deque}{Deque<T>::Node::Node}}(\textcolor{keyword}{const} T\& data, Node* prev, Node* next)}
+\DoxyCodeLine{287 \{}
+\DoxyCodeLine{288     this-\/>data = data;}
+\DoxyCodeLine{289     this-\/>prev = prev;}
+\DoxyCodeLine{290     this-\/>next = next;}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292     \textcolor{keywordflow}{if} (prev == \textcolor{keyword}{nullptr} \&\& next == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{293       }
+\DoxyCodeLine{294     \}}
+\DoxyCodeLine{295     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (prev == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{296         next-\/>prev = \textcolor{keyword}{this};}
+\DoxyCodeLine{297     \}}
+\DoxyCodeLine{298     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (next == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{299         prev-\/>next = \textcolor{keyword}{this};}
+\DoxyCodeLine{300     \}}
+\DoxyCodeLine{301     \textcolor{keywordflow}{else} \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}wrong argument"{}};}
+\DoxyCodeLine{302 \}}
+\DoxyCodeLine{303 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{304 \textcolor{keyword}{inline} \mbox{\hyperlink{class_deque}{Deque<T>::Node::Node}}( T\&\& data, Node* prev, Node* next)}
+\DoxyCodeLine{305 \{}
+\DoxyCodeLine{306     this-\/>data = std::move(data);}
+\DoxyCodeLine{307     this-\/>prev = prev;}
+\DoxyCodeLine{308     this-\/>next = next;}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310     \textcolor{keywordflow}{if} (prev == \textcolor{keyword}{nullptr} \&\& next == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312     \}}
+\DoxyCodeLine{313     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (prev == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{314         next-\/>prev = \textcolor{keyword}{this};}
+\DoxyCodeLine{315     \}}
+\DoxyCodeLine{316     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (next == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{317         prev-\/>next = \textcolor{keyword}{this};}
+\DoxyCodeLine{318     \}}
+\DoxyCodeLine{319     \textcolor{keywordflow}{else} \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}wrong argument"{}};}
+\DoxyCodeLine{320 \}}
+\DoxyCodeLine{321 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{322 \textcolor{keyword}{inline} std::ostream\& operator<<<>(std::ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{class_deque}{Deque<T>}}\& deque)}
+\DoxyCodeLine{323 \{}
+\DoxyCodeLine{324     \textcolor{keyword}{auto} tmp = deque.first;}
+\DoxyCodeLine{325     \textcolor{keywordtype}{unsigned} length = deque.size;}
+\DoxyCodeLine{326     \textcolor{keywordflow}{while} (length-\/-\/) \{}
+\DoxyCodeLine{327         out << tmp-\/>data<<\textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{328         tmp = tmp-\/>next;}
+\DoxyCodeLine{329     \}}
+\DoxyCodeLine{330     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{331     \textcolor{comment}{// TODO: insert return statement here}}
+\DoxyCodeLine{332 \}}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334 }
+
+\end{DoxyCode}

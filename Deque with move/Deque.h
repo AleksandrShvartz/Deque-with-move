@@ -2,14 +2,53 @@
 #include <iostream>
 template <class T>
 class Deque;
+/// <summary>
+/// Оператор вывода 
+/// </summary>
+/// <typeparam name="T">Шаблонный параметр</typeparam>
+/// <param name="out">поток вывода</param>
+/// <param name="deque">Очередь из которой читаются элементы</param>
+/// <returns>Ссылку на поток вывода</returns>
 template<class T>
-std::ostream& operator <<(std::ostream&, const Deque<T>&);
+std::ostream& operator <<(std::ostream& out, const Deque<T>& deque);
+/// <summary>
+/// Шаблонный класс очереди с параметром \param T
+/// </summary>
+/// <typeparam name="T">тип хранимых элементов</typeparam>
 template<class T>
 class Deque {		 
+	/// Внутренний класс узла.
+	/**
+	Хранит в себе данные типа \param T и хранит указатели на 
+	предыдущий и следующий элемент. 
+	*/
 	struct Node{
-		Node(const T&, Node*, Node*);
+		/// <summary>
+		/// Конструктор, вставляющий элемент между двумя передаваемыми.
+		/// </summary>
+		/// <param name="newData">Передаваемые данные узла</param>
+		/// <param name="prev">Указатеь на предыдущий элемент </param>
+		/// <param name="next">Указатеь на следующий элемент</param>
+		Node(const T& newData, Node* prev, Node* next);
+		/// <summary>
+		///  Конструктор, вставляющий элемент между двумя передаваемыми, поддерживающий 
+		/// move семантику.
+		/// </summary>
+		/// <param name="newData">Передаваемые данные узла</param>
+		/// <param name="prev">Указатеь на предыдущий элемент </param>
+		/// <param name="next">Указатеь на следующий элемент</param>
+		Node(T&& newData, Node* prev, Node* next);
+		/// <summary>
+		/// Данные узла.
+		/// </summary>
 		T data;
+		/// <summary>
+		/// Указатель на следующий элемент.
+		/// </summary>
 		Node* next;
+		/// <summary>
+		/// Указатель на предыдущий элемент.
+		/// </summary>
 		Node* prev;
 	};
 private:
@@ -17,17 +56,78 @@ private:
 	Node* last;
 	unsigned int size;
 public:
+	/// <summary>
+	/// Базовый конструктор создающий пустую очередь содержащие элементы типа \param T 
+	/// </summary>
 	Deque<T>();
-	void pushFront(const T&);
-	void pushBack(const T&);
+	/// <summary>
+	/// Добавляет элемент в начало очереди.
+	/// </summary>
+	/// <param name="newData">Добавляемый элемент</param>
+	void pushFront(const T& newData);
+	/// <summary>
+	/// Добавляет rvalue элемент в начало очереди.
+	/// </summary>
+	/// <param name="newData">Добавляемый элемент</param>
+	void pushFront(T&& newData);
+	/// <summary>
+	/// Добавляет элемент в конец очереди.
+	/// </summary>
+	/// <param name="newData">Добавляемый элемент</param>
+	void pushBack(const T& newData);
+	/// <summary>
+	/// Добавляет rvalue элемент в конец очереди.
+	/// </summary>
+	/// <param name="newData">Добавляемый элемент</param>
+	void pushBack(T&& newData);
+	/// <summary>
+	/// "Вынимет" элемент из начала очереди
+	/// \throw 	size=0
+	/// </summary>
+	/// <returns>первый элемент очереди</returns>
 	T popFront();
+	/// <summary>
+	 /// "Вынимет" элемент из конца очереди
+	 /// \throw 	size=0
+	 /// </summary>
+	 /// <returns>последний элемент очереди</returns>
 	T popBack();
-	Deque<T>(const Deque<T>&);
-	Deque<T> operator=(const Deque<T>&);
-	Deque( Deque<T>&&);
-	Deque<T> operator=( Deque<T>&&);
-	
+	/// <summary>
+	/// Конструктор копирования.
+	/// </summary>
+	/// <param name="deque">очередь из которой копируются элементы</param>
+	Deque<T>(const Deque<T>& deque);
+	/// <summary>
+	/// Оператор присваивания. 
+	/// </summary>
+	/// <param name="deque">очередь из которой копируются элементы</param>
+	/// <returns>текущую очередь по значению </returns>
+	Deque<T> operator=(const Deque<T>& deque);
+	/// <summary>
+	/// Move-конструктор копирования.
+	/// </summary>
+	/// <param name="deque">очередь из которой копируются элементы</param>
+	Deque( Deque<T>&& deque);
+	/// <summary>
+	/// Move-оператор присваивания.
+	/// </summary>
+	/// <param name="deque">очередь из которой копируются элементы</param>
+	/// <returns>текущую очередь по значению</returns>
+	Deque<T> operator=( Deque<T>&& deque);
+	/// <summary>
+	/// Конструктор от 	\param std::initializer_list
+	/// </summary>
+	/// <param name="list">список инициализации</param>
+	Deque<T>(const std::initializer_list<T>& list);
+	/// <summary>
+	/// Оператор вывода 
+	/// </summary>
+	/// <typeparam name="T">Шаблонный параметр</typeparam>
+	/// <param name="out">поток вывода</param>
+	/// <param name="deque">Очередь из которой читаются элементы</param>
+	/// <returns>Ссылку на поток вывода</returns>
 	friend std::ostream& operator<< <>(std::ostream&,const Deque<T>&);
+	///Деструктор
 	~Deque();
 };
 
@@ -51,6 +151,16 @@ inline Deque<T>::Deque(const Deque<T>& deque)
 }
 
 template<class T>
+inline Deque<T>::Deque(const std::initializer_list<T>& list)
+{
+	size = 0;
+	first = nullptr;
+	last = nullptr;
+	for (auto elem : list)
+		pushFront(elem);
+}
+
+template<class T>
 inline void Deque<T>::pushFront(const T& newData)
 {
 	first = new Node(newData,nullptr,first);
@@ -58,7 +168,14 @@ inline void Deque<T>::pushFront(const T& newData)
 		last = first;
 	size++;
 }
-
+template<class T>
+inline void Deque<T>::pushFront( T&& newData)
+{
+	first = new Node(std::move(newData), nullptr, first);
+	if (size == 0)
+		last = first;
+	size++;
+}
 template<class T>
 inline void Deque<T>::pushBack(const T& newData)
 {
@@ -67,7 +184,14 @@ inline void Deque<T>::pushBack(const T& newData)
 		first = last;
 	size++;
 }
-
+template<class T>
+inline void Deque<T>::pushBack(T&& newData)
+{
+	last = new Node(std::move(newData), last, nullptr);
+	if (size == 0)
+		first = last;
+	size++;
+}
 template<class T>
 inline T Deque<T>::popFront()
 {
@@ -161,7 +285,7 @@ inline Deque<T>::~Deque()
 template<class T>
 inline Deque<T>::Node::Node(const T& data, Node* prev, Node* next)
 {
-	this->data = std::move(data);
+	this->data = data;
 	this->prev = prev;
 	this->next = next;
 
@@ -177,12 +301,30 @@ inline Deque<T>::Node::Node(const T& data, Node* prev, Node* next)
 	else throw "wrong argument";
 }
 template<class T>
+inline Deque<T>::Node::Node( T&& data, Node* prev, Node* next)
+{
+	this->data = std::move(data);
+	this->prev = prev;
+	this->next = next;
+
+	if (prev == nullptr && next == nullptr) {
+
+	}
+	else if (prev == nullptr) {
+		next->prev = this;
+	}
+	else if (next == nullptr) {
+		prev->next = this;
+	}
+	else throw "wrong argument";
+}
+template<class T>
 inline std::ostream& operator<<<>(std::ostream& out, const Deque<T>& deque)
 {
 	auto tmp = deque.first;
 	unsigned length = deque.size;
 	while (length--) {
-		out << tmp->data;
+		out << tmp->data<<" ";
 		tmp = tmp->next;
 	}
 	return out;

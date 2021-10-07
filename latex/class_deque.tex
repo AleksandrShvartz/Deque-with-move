@@ -1,0 +1,320 @@
+\hypertarget{class_deque}{}\doxysection{Deque\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_deque}\index{Deque$<$ T $>$@{Deque$<$ T $>$}}
+
+
+Шаблонный класс очереди с параметром  
+
+
+
+
+{\ttfamily \#include $<$Deque.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_deque_ad962e9c9ddb2c3290ea91f796d7051bc}{Deque}} ()
+\begin{DoxyCompactList}\small\item\em Базовый конструктор создающий пустую очередь содержащие элементы типа \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_deque_a24ad73c7b6a8d36147a9d3c604bf0552}{push\+Front}} (const T \&new\+Data)
+\begin{DoxyCompactList}\small\item\em Добавляет элемент в начало очереди. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_deque_a1ee46f80bcad60497e4d212af64e659d}{push\+Front}} (T \&\&new\+Data)
+\begin{DoxyCompactList}\small\item\em Добавляет rvalue элемент в начало очереди. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_deque_a94ab2b40010b282f52410785e20ff514}{push\+Back}} (const T \&new\+Data)
+\begin{DoxyCompactList}\small\item\em Добавляет элемент в конец очереди. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_deque_ae443c9f8550e8019bad53e7590eb24b4}{push\+Back}} (T \&\&new\+Data)
+\begin{DoxyCompactList}\small\item\em Добавляет rvalue элемент в конец очереди. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_deque_ab45c37754e50342a60f450468aadfd03}{pop\+Front}} ()
+\begin{DoxyCompactList}\small\item\em \char`\"{}Вынимет\char`\"{} элемент из начала очереди \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_deque_a922017fa32ca1f2e3aef3fc2df64cd5f}{pop\+Back}} ()
+\item 
+\mbox{\hyperlink{class_deque_a0f8fb580857a48838c766fda7ec5aba6}{Deque}} (const \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \&deque)
+\begin{DoxyCompactList}\small\item\em Конструктор копирования. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \mbox{\hyperlink{class_deque_af158259c70c2cccce4b02b6d7fccacc7}{operator=}} (const \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \&deque)
+\begin{DoxyCompactList}\small\item\em Оператор присваивания. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_deque_a16ca3f5ead40eae53a42d20855942740}{Deque}} (\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \&\&deque)
+\begin{DoxyCompactList}\small\item\em Move-\/конструктор копирования. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \mbox{\hyperlink{class_deque_aceb32292998c10c1f02ff79c6733e805}{operator=}} (\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \&\&deque)
+\begin{DoxyCompactList}\small\item\em Move-\/оператор присваивания. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_deque_ab2632da8dc9f9baa5ff42616fef459ea}{Deque}} (const std\+::initializer\+\_\+list$<$ T $>$ \&list)
+\begin{DoxyCompactList}\small\item\em Конструктор от \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_deque_a7a214bb3ef8cb676f9ef0e9825ae4b1b}\label{class_deque_a7a214bb3ef8cb676f9ef0e9825ae4b1b}} 
+{\bfseries $\sim$\+Deque} ()
+\begin{DoxyCompactList}\small\item\em Деструктор \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_deque_a0edf27e361a835752616f362d1bc2278}{operator$<$$<$}} (std\+::ostream \&, const \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \&)
+\begin{DoxyCompactList}\small\item\em Оператор вывода \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Deque$<$ T $>$}
+Шаблонный класс очереди с параметром 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & \\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & тип хранимых элементов\\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_deque_ad962e9c9ddb2c3290ea91f796d7051bc}\label{class_deque_ad962e9c9ddb2c3290ea91f796d7051bc}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!Deque@{Deque}}
+\index{Deque@{Deque}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Deque()}{Deque()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::\mbox{\hyperlink{class_deque}{Deque}}\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Базовый конструктор создающий пустую очередь содержащие элементы типа 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_deque_a0f8fb580857a48838c766fda7ec5aba6}\label{class_deque_a0f8fb580857a48838c766fda7ec5aba6}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!Deque@{Deque}}
+\index{Deque@{Deque}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Deque()}{Deque()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::\mbox{\hyperlink{class_deque}{Deque}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \&}]{deque }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор копирования. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deque} & очередь из которой копируются элементы\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_deque_a16ca3f5ead40eae53a42d20855942740}\label{class_deque_a16ca3f5ead40eae53a42d20855942740}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!Deque@{Deque}}
+\index{Deque@{Deque}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Deque()}{Deque()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::\mbox{\hyperlink{class_deque}{Deque}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \&\&}]{deque }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Move-\/конструктор копирования. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deque} & очередь из которой копируются элементы\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_deque_ab2632da8dc9f9baa5ff42616fef459ea}\label{class_deque_ab2632da8dc9f9baa5ff42616fef459ea}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!Deque@{Deque}}
+\index{Deque@{Deque}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Deque()}{Deque()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::\mbox{\hyperlink{class_deque}{Deque}} (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ T $>$ \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор от 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::initializer\+\_\+list} & \\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & список инициализации\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_deque_af158259c70c2cccce4b02b6d7fccacc7}\label{class_deque_af158259c70c2cccce4b02b6d7fccacc7}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \&}]{deque }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Оператор присваивания. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deque} & очередь из которой копируются элементы\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+текущую очередь по значению 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_deque_aceb32292998c10c1f02ff79c6733e805}\label{class_deque_aceb32292998c10c1f02ff79c6733e805}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \&\&}]{deque }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Move-\/оператор присваивания. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deque} & очередь из которой копируются элементы\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+текущую очередь по значению
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_deque_a922017fa32ca1f2e3aef3fc2df64cd5f}\label{class_deque_a922017fa32ca1f2e3aef3fc2df64cd5f}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!popBack@{popBack}}
+\index{popBack@{popBack}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{popBack()}{popBack()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::pop\+Back\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+
+
+\char`\"{}Вынимет\char`\"{} элемент из конца очереди 
+\begin{DoxyExceptions}{Exceptions}
+{\em size=0} & \\
+\hline
+\end{DoxyExceptions}
+
+
+\begin{DoxyReturn}{Returns}
+последний элемент очереди
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_deque_ab45c37754e50342a60f450468aadfd03}\label{class_deque_ab45c37754e50342a60f450468aadfd03}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!popFront@{popFront}}
+\index{popFront@{popFront}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{popFront()}{popFront()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::pop\+Front\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\char`\"{}Вынимет\char`\"{} элемент из начала очереди 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em size=0} & \\
+\hline
+\end{DoxyExceptions}
+
+
+\begin{DoxyReturn}{Returns}
+первый элемент очереди
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_deque_a94ab2b40010b282f52410785e20ff514}\label{class_deque_a94ab2b40010b282f52410785e20ff514}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!pushBack@{pushBack}}
+\index{pushBack@{pushBack}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pushBack()}{pushBack()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::push\+Back (\begin{DoxyParamCaption}\item[{const T \&}]{new\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Добавляет элемент в конец очереди. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Data} & Добавляемый элемент\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_deque_ae443c9f8550e8019bad53e7590eb24b4}\label{class_deque_ae443c9f8550e8019bad53e7590eb24b4}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!pushBack@{pushBack}}
+\index{pushBack@{pushBack}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pushBack()}{pushBack()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::push\+Back (\begin{DoxyParamCaption}\item[{T \&\&}]{new\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Добавляет rvalue элемент в конец очереди. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Data} & Добавляемый элемент\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_deque_a24ad73c7b6a8d36147a9d3c604bf0552}\label{class_deque_a24ad73c7b6a8d36147a9d3c604bf0552}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!pushFront@{pushFront}}
+\index{pushFront@{pushFront}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pushFront()}{pushFront()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::push\+Front (\begin{DoxyParamCaption}\item[{const T \&}]{new\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Добавляет элемент в начало очереди. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Data} & Добавляемый элемент\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_deque_a1ee46f80bcad60497e4d212af64e659d}\label{class_deque_a1ee46f80bcad60497e4d212af64e659d}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!pushFront@{pushFront}}
+\index{pushFront@{pushFront}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pushFront()}{pushFront()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$\+::push\+Front (\begin{DoxyParamCaption}\item[{T \&\&}]{new\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Добавляет rvalue элемент в начало очереди. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Data} & Добавляемый элемент\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_deque_a0edf27e361a835752616f362d1bc2278}\label{class_deque_a0edf27e361a835752616f362d1bc2278}} 
+\index{Deque$<$ T $>$@{Deque$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Deque$<$ T $>$@{Deque$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_deque}{Deque}}$<$ T $>$ \&}]{deque }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор вывода 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Шаблонный параметр\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em out} & поток вывода\\
+\hline
+{\em deque} & Очередь из которой читаются элементы\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылку на поток вывода
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Deque with move/Deque.\+h\end{DoxyCompactItemize}

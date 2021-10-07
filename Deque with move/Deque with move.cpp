@@ -18,5 +18,7 @@ int main()
 	Deque<int>b;
 	b = std::move(a);
 	std::cout << b << std::endl;
+	Deque<double> d = {1.0,2.0,3.5};
+	std::cout << d;
 	return 0;
 }
